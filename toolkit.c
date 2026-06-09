@@ -23,7 +23,14 @@ int main(void) {
                 printf("power(%lf, %d) = %lf", base, exp, answer_lf);
                 break;
             case 3:
-                is_prime(int n); break;
+                int number;
+                printf("Enter n: "); fscanf(stdin,"%d", &number);
+                answer_int = is_prime(number);
+                if (answer_int == 1){
+                    printf("%d is prime.", number);}
+                else {
+                    printf("%d is not prime.", number);}
+                break;
             case 4:
                 gcd(int a, int b);
             case 5:

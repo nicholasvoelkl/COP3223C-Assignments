@@ -60,7 +60,20 @@ double power(double base, int exp){
 }
 
 int is_prime(int n){
-
+    int count = 0;
+    if (n <= 1) {
+        return 0;
+    }
+    for (int countup = 1; countup < n + 1; countup++){
+        if (n%countup == 0){
+            count += 1;
+        }
+    }
+    if (count > 2){
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
 int gcd(int a, int b){
