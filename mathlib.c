@@ -65,19 +65,21 @@ int is_prime(int n){
         return 0;
     }
     for (int countup = 1; countup < n + 1; countup++){
-        if (n%countup == 0){
-            count += 1;
-        }
+        if (n%countup == 0){ count += 1;}
     }
-    if (count > 2){
-        return 0;
-    } else {
-        return 1;
-    }
+    return (count > 2) ? 0: 1
 }
 
 int gcd(int a, int b){
-
+    int c; int r;
+    if (a < b){c = a; a = b; b = c;}
+    do {
+        c = a/b;
+        r = a%b;
+        a = b;
+        b = r;
+    } while (r != 0);
+    return c;
 }
 
 double average(int arr[], int len){
