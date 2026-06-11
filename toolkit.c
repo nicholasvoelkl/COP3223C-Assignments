@@ -38,8 +38,9 @@ int main(void) {
                 printf("gcd(%d, %d) = %d\n", a, b, answer_int);
                 break;}
             case 5:{
-                int len; int number_list[len];
+                int len;
                 printf("Enter count then values: "); fscanf(stdin,"%d", &len);
+                int number_list[len];
                 for (int x = 0; x < len; x++){
                     fscanf(stdin,"%d",&number_list[x]);
                 }
@@ -50,7 +51,7 @@ int main(void) {
                 long long long_number;
                 printf("Enter integer: "); fscanf(stdin,"%lld", &long_number);
                 answer_int = count_digits(long_number);
-                printf("%lld has %d digits.", long_number, answer_int);
+                printf("%lld has %d digits.\n", long_number, answer_int);
                 break;}
             case 7:{
                 printf("Goodbye!\n");}
