@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "mathlib.h"
 
 int confirm_valid(int min, int max){
@@ -67,7 +68,7 @@ int is_prime(int n){
     for (int countup = 1; countup < n + 1; countup++){
         if (n%countup == 0){ count += 1;}
     }
-    return (count > 2) ? 0: 1
+    return (count > 2) ? 0: 1;
 }
 
 int gcd(int a, int b){
@@ -79,13 +80,30 @@ int gcd(int a, int b){
         a = b;
         b = r;
     } while (r != 0);
-    return c;
+    return a;
 }
 
 double average(int arr[], int len){
-
+    if (len <= 0){
+        return 0;
+    }
+    double total = 0;
+    for (int x = 0; x < len; x++){
+        total += arr[x];
+    }
+    return total/len;
 }
 
 int count_digits(long long n){
-
+    int count = 0;
+    long long number = n;
+    if (n == 0){
+        return 1;
+    } else {
+        do  {
+            number = number/10;
+            count += 1;
+        } while (number <= -1 || number >= 1);
+    }
+    return count;
 }
