@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include "mathlib.h"
 
+int display_prompt(void);
+
 //Main
 int main(void) {
     int choice = 0;
     int answer_int;
     double answer_lf;
     do {
-        choice = display_menu();
+        choice = display_prompt();
         switch(choice){
             case 1:{
                 int value; int lo; int hi;
@@ -17,10 +19,10 @@ int main(void) {
                 printf("clamp(%d, %d, %d) = %d\n", value, lo, hi, answer_int);
                 break;}
             case 2:{
-                double base; int exp;
-                printf("Enter base and exponent: "); fscanf(stdin,"%lf %d", &base, &exp);
-                answer_lf = power(base, exp);
-                printf("power(%.2f, %d) = %.2f\n", base, exp, answer_lf);
+                double base; int exponent;
+                printf("Enter base and exponent: "); fscanf(stdin,"%lf %d", &base, &exponent);
+                answer_lf = power(base, exponent);
+                printf("power(%.2f, %d) = %.2f\n", base, exponent, answer_lf);
                 break;}
             case 3:{
                 int number;
@@ -57,4 +59,24 @@ int main(void) {
                 printf("Goodbye!\n");}
         }
     } while (choice != 7);
+}
+
+int display_prompt(void){
+    int choice;
+    printf("= Math Toolkit =\n");
+    printf("1. Clamp a value\n");
+    printf("2. Compute a power\n");
+    printf("3. Prime check\n");
+    printf("4. GCD\n");
+    printf("5. Array average\n");
+    printf("6. Count digits\n");
+    printf("7. Quit\n");
+    do{
+        printf("Enter choice (1-7): "); fscanf(stdin,"%d",&choice);
+        if (choice >= 1 && choice <= 7){
+            return choice;
+        } else {
+            printf("Invalid choice. Try again.\n");}
+    } while (choice > 7 || choice < 1);
+    return 0;
 }

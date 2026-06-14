@@ -1,10 +1,6 @@
 #ifndef MATHLIB_H
 #define MATHLIB_H
 
-int confirm_valid(int min, int max);
-
-int display_menu(void);
-
 int clamp(int value, int lo, int hi);
 
 double power(double base, int exp);
