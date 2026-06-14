@@ -4,10 +4,10 @@
 
 int display_prompt(void);
 
-
 int main(void){
     const int max_string_length = 200;
     int choice = 0;
+    int count;
 
     do {
         choice = display_prompt();
@@ -53,12 +53,21 @@ int main(void){
                 printf("Upper: %s\n", string_forup);
                 break;}
             case 7:{
-
+                printf("Enter count then values: "); fscanf(stdin,"%d", &count);
+                int numbers[count]; int min; int max; double avg;
+                for (int amount = 0; amount < count; amount++){fscanf(stdin,"%d", &numbers[amount]);}
+                array_stats(numbers, count, &min, &max, &avg);
+                printf("min=%d  max=%d  avg=%.2f\n", min, max, avg);
                 break;}
             case 8:{
-
+                printf("Enter count then values: "); fscanf(stdin,"%d", &count);
+                int data[count];
+                for (int amount = 0; amount < count; amount++){fscanf(stdin,"%d", &data[amount]);}
+                int target; printf("Enter target: "); fscanf(stdin,"%d", &target);
+                int position = array_find(data, count, target);
+                if (position != -1){printf("Found at index %d.\n", position);} else {printf("Not found.\n");}
                 break;}
-            case 9:{printf("Goodbye!\n");}
+            case 9:{printf("Goodbye!\n"); break;}
         }
     } while (choice != 9);
 }

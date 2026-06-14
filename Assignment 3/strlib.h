@@ -13,4 +13,8 @@ int str_count_char(const char *s, char c);
 
 void str_to_upper(char *s);
 
+void array_stats(const int arr[], int len, int *out_min, int *out_max, double *out_avg);
+
+int array_find(const int arr[], int len, int target);
+
 #endif

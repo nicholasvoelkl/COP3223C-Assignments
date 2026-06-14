@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "strlib.h"
 
 int str_length(const char *s){
@@ -53,4 +52,25 @@ void str_to_upper(char *s){
         if  (*s >= 'a' && *s <= 'z'){
             *s -= 32;}
         s++;}
+}
+
+void array_stats(const int arr[], int len, int *out_min, int *out_max, double *out_avg){
+    if (len <= 0){*out_min = *out_max = 0; *out_avg = 0.0; return;}
+    *out_min = 2147483647;
+    *out_max = -2147483647;
+    int total = 0;
+    for (int count = 0; count < len; count++){
+        if (arr[count] < *out_min){*out_min = arr[count];}
+        if (arr[count] > *out_max){*out_max = arr[count];}
+        total += arr[count];}
+    *out_avg = (double)total/len;}
+
+int array_find(const int arr[], int len, int target){
+    int position = 0;
+    for (int count = 0; count < len; count++){
+        if (target != arr[count]){
+            position++;}
+        if (target == arr[count]){
+            return position;}}
+    return -1;
 }
