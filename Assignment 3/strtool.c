@@ -14,7 +14,7 @@ int main(void){
         switch(choice){
             case 1:{
                 char string[max_string_length];
-                printf("Enter string: "); fscanf(stdin,"%s", string);
+                printf("Enter string: "); fscanf(stdin," %[^\n]", string);
                 int length = str_length(string);
                 printf("Length: %d\n", length);
                 break;}
@@ -48,7 +48,7 @@ int main(void){
                 break;}
             case 6:{
                 char string_forup[max_string_length];
-                printf("Enter string: "); fscanf(stdin,"%s", string_forup);
+                printf("Enter string: "); fscanf(stdin," %[^\n]", string_forup);
                 str_to_upper(string_forup);
                 printf("Upper: %s\n", string_forup);
                 break;}
